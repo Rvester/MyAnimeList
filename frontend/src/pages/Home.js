@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 
-import { AnimeList } from "./Components/AnimeList";
-import { AnimeInfo } from "./Components/AnimeInfo";
-import { AddToList } from "./Components/AddToList";
-import { RemoveFromList } from "./Components/RemoveFromList";
+import { AnimeList } from "../components/AnimeList";
+import { AnimeInfo } from "../components/AnimeInfo";
+import { AddToList } from "../components/AddToList";
+import { RemoveFromList } from "../components/RemoveFromList";
 function Home() {
-    const [search,setSearch]=useState('Dragonball Z')
+    const [search,setSearch]=useState('Naruto')
     const [animeData,setAnimeData]=useState();
     const [animeInfo,setAnimeInfo]=useState()
     const [myAnimeList,setMyAnimeList]=useState([])
