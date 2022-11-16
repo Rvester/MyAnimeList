@@ -38,11 +38,17 @@ const clear = async (req, res) => {
 
 const addFavorite = async (req, res) => {
   try {
+    console.log({
+      username,
+      email,
+      anime_id,
+    });
     await userFavorite.create({
       username,
       email,
       anime_id,
     });
+
     res.status(200).json({ userFavorite });
   } catch (error) {
     res.status(400).json({ error: error.message });

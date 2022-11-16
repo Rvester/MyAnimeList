@@ -30,7 +30,14 @@ export const AnimeList = ({
                     <AnimeComponent
                       onClick={async () => {
                         await axios.post(
-                          "http://localhost:5000/users/favorites/"
+                          "http://localhost:5000/users/favorites",
+                          {
+                            headers: {
+                              Authorization: `Bearer ${localStorage.getItem(
+                                "token"
+                              )}`,
+                            },
+                          }
                         );
                       }}
                     />
