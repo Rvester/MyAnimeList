@@ -17,7 +17,7 @@ function App() {
 
   const currentUserInfo = async(token) => {
     try {
-      const info = await axios.get('http://localhost:8080/users/info', {
+      const info = await axios.get('http://localhost:5000/users/info', {
         headers: {
           'Authorization': `Bearer ${token}`
         }

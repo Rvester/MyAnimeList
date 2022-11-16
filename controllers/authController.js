@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken')
 const User = require('../models/User')
 
 const register = async (req, res) => {
-
+console.log("hi")
     try {
 
     // 1. Check if the user exists
@@ -23,6 +23,7 @@ const register = async (req, res) => {
     // 3. Add the new user to the database with their encrypted password
 
         const newUser = await User.create({ ...req.body, password: encryptedPassword })
+        console.log({newUser})
 
     // 4. Generate a JWT token and return it to the user
 

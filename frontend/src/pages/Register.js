@@ -21,8 +21,8 @@ function Register({ setUser }) {
 
         try {
 
-            const response = await axios.post('http://localhost:8080/auth/register', form)
-            const info = await axios.get('http://localhost:8080/users/info', {
+            const response = await axios.post('http://localhost:5000/auth/register', form)
+            const info = await axios.get('http://localhost:5000/users/info', {
                 headers: {
                     'Authorization': `Bearer ${response.data.token}`
                 }

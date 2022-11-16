@@ -5,5 +5,6 @@ const userCtrl = require('../controllers/userController')
 router.get('/info', userCtrl.info)
 router.delete('/clear', userCtrl.clear)
 router.get('/all', userCtrl.allUsers)
+router.post('/favorites', userCtrl.addFavorite)
 
 module.exports = router

@@ -1,11 +1,9 @@
-import React from 'react'
+import React from "react";
 
-export const AddToList = () => {
+export const AddToList = (props) => {
   return (
-    <>
-        <div className="mylist">
-            <p>Add To List +</p>
-        </div>
-    </>
-  )
-}
+    <div className="mylist">
+      <button {...props}>Add To Favorites</button>
+    </div>
+  );
+};

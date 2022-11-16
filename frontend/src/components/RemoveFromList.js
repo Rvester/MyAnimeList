@@ -1,11 +1,9 @@
-import React from 'react'
+import React from "react";
 
 export const RemoveFromList = () => {
   return (
-    <>
     <div className="mylist">
-        <p>Remove From List -</p>
+      <button>Remove From Favorites</button>
     </div>
-</>
-  )
-}
+  );
+};
