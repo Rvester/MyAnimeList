@@ -73,7 +73,8 @@ export const AnimeList = ({
                           await axios.put(
                             "http://localhost:5000/users/favorites",
                             userFavorite,
-                            config
+                            config,
+                            anime
                           );
                           // await axios.get(
                           //   "http://localhost:5000/users/favorites",
