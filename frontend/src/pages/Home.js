@@ -1,12 +1,14 @@
 import React, { useEffect, useState, useCallback } from "react";
+import axios from "axios";
 import { debounce } from "lodash";
 
 import { AnimeList } from "../components/AnimeList";
 import { AnimeInfo } from "../components/AnimeInfo";
 import { AddToList } from "../components/AddToList";
 import { RemoveFromList } from "../components/RemoveFromList";
+
 function Home({ user }) {
-  const [search, setSearch] = useState("Dragonball");
+  const [search, setSearch] = useState("");
   const [animeData, setAnimeData] = useState();
   const [animeInfo, setAnimeInfo] = useState();
   const [myAnimeList, setMyAnimeList] = useState([]);
@@ -17,8 +19,7 @@ function Home({ user }) {
     });
     if (index < 0) {
       const newArray = [...myAnimeList, anime];
-      //setMyAnimeList(newArray);
-      console.log(newArray);
+      setMyAnimeList(newArray);
     }
   };
   const removeFrom = (anime) => {
@@ -39,9 +40,60 @@ function Home({ user }) {
     []
   );
 
+  const getFavorites = useCallback(
+    debounce(async (username) => {
+      const token = localStorage.getItem("token");
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+
+      const response = await axios.get(
+        `http://localhost:5000/users/favorites?username=${username}`,
+        config
+      );
+      //   const resData = await response;
+
+      //   // setMyAnimeList(resData);
+      //   console.log(resData.data);
+      //   const animeData = resData.data.userFavorites;
+      //   const getAnime = async (anime_id) => {
+      //     // const value = res.json();
+      //     // console.log(value);
+      //   };
+      //   for (let i = 0; i < animeData.length; i++) {
+      //     fetch(
+      //       `https://api.jikan.moe/v4/anime?q=${animeData[i].anime_id}&sfw&limit=1`
+      //     ).then((data) => {
+      //       console.log(data);
+      //     });
+      //     console.log(animeData[i]);
+      //   }
+
+      //   // setTimeout(() => {
+      //   //   getAnime(anime.anime_id);
+      //   // }, 3000);
+
+      //   // await new Promise((r) => {
+      //   //   setTimeout(getAnime(anime.anime_id), 3000);
+      //   // });
+
+      //   // });
+      //   // console.log(typeof animeData);
+      //   // console.log(data, "Hey I'm here");
+    })
+  );
+
+  useEffect(() => {
+    if (user) {
+      getFavorites(user.username);
+    }
+  }, [getFavorites, user]);
+
   useEffect(() => {
     getData(search);
-  }, [search]);
+  }, [getData, search]);
 
   return (
     <>

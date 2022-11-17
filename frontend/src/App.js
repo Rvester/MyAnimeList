@@ -2,7 +2,8 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import axios from "axios";
-
+import { Grid, responsiveFontSizes } from "@mui/material";
+import Container from "@mui/material/Container";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Navbar from "./components/Navbar";

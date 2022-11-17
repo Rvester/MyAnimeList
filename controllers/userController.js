@@ -53,15 +53,17 @@ const setFavorite = async (req, res) => {
 };
 
 const listFavorite = async (req, res) => {
-  const { username } = req.body;
-
+  const { username } = req.query;
+  console.log({ username });
   try {
-    await userFavorite.find({
+    const userFavorites = await userFavorite.find({
       username,
     });
+    console.log(JSON.stringify(userFavorites, null, 2));
 
-    res.status(200).json({ userFavorite });
+    res.status(200).json({ userFavorites });
   } catch (error) {
+    console.log(error);
     res.status(400).json({ error: error.message });
   }
 };

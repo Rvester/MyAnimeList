@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 export const AnimeList = ({
@@ -9,6 +9,29 @@ export const AnimeList = ({
   user,
 }) => {
   const AnimeComponent = animeComponent;
+
+  // const deleteFavorite = {
+  //   anime_id: anime.mal_id,
+  // };
+
+  // const token = localStorage.getItem("token");
+  // const config = {
+  //   headers: {
+  //     Authorization: `Bearer ${token}`,
+  //   },
+  // };
+
+  // const [myAnimeList, setMyAnimeList] = useState({});
+
+  // useEffect(() => {
+  //   const response = async () => {
+  //     await axios.get(
+  //       "http://localhost:5000/users/favorites",
+  //       { username: user.username },
+  //       config
+  //     );
+  //   };
+  // }, [myAnimeList]);
   return (
     <>
       {animelist
@@ -47,15 +70,20 @@ export const AnimeList = ({
                           },
                         };
                         try {
-                          const response = await axios.put(
+                          await axios.put(
                             "http://localhost:5000/users/favorites",
                             userFavorite,
                             config
                           );
-                          console.log(response);
+                          // await axios.get(
+                          //   "http://localhost:5000/users/favorites",
+                          //   userFavorite,
+                          //   config
+                          // );
                         } catch (error) {
                           console.log(error);
                         }
+
                         // await axios.delete(
                         //   "http://localhost:5000/users/removeFavorites",
                         //   deleteFavorite,
