@@ -6,9 +6,9 @@ This project was loosely based on MAL (https://myanimelist.net) whichj is an ani
 
 
 ## Technologies used
-REACT JS
-NODE JS
-Material UI 
+- REACT JS
+- NODE JS
+- Material UI 
 
 
 ## Things to Imrpove on
