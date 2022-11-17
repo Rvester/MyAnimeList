@@ -103,6 +103,7 @@ function Home({ user }) {
           <h1>MAL</h1>
           <div className="search-box">
             <input
+              className="box"
               type="search"
               placeholder="Your Favorite Anime Here"
               onChange={(e) => setSearch(e.target.value)}
