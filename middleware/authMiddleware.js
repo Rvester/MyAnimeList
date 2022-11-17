@@ -5,6 +5,8 @@ function authorize(req, res, next) {
     // 1. Check if the user has a token (...if it's in the headers)
 
     let token = req.header("Authorization");
+    //console.log(req);
+    //console.log(token);
 
     if (!token) {
       throw new Error("No token provided");
@@ -18,7 +20,7 @@ function authorize(req, res, next) {
     const payload = jwt.verify(token, process.env.JWT_SECRET);
 
     //   payload ->  { id, username }
-
+    console.log(payload);
     if (payload.error) {
       throw new Error(payload.error.message);
     }
@@ -26,6 +28,7 @@ function authorize(req, res, next) {
     // 3. Attach the payload from the token to the request object
 
     req.userId = payload.id;
+    console.log(req.userId);
 
     // 4. Move on to the requested route (next)
     next();

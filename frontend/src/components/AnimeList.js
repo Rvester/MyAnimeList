@@ -6,6 +6,7 @@ export const AnimeList = ({
   animeComponent,
   setAnimeInfo,
   handleList,
+  user,
 }) => {
   const AnimeComponent = animeComponent;
   return (
@@ -29,16 +30,37 @@ export const AnimeList = ({
                     </div>
                     <AnimeComponent
                       onClick={async () => {
-                        await axios.post(
-                          "http://localhost:5000/users/favorites",
-                          {
-                            headers: {
-                              Authorization: `Bearer ${localStorage.getItem(
-                                "token"
-                              )}`,
-                            },
-                          }
-                        );
+                        console.log("onClick");
+                        console.log({ user });
+                        const userFavorite = {
+                          username: user.username,
+                          anime_id: anime.mal_id,
+                        };
+                        // const deleteFavorite = {
+                        //   anime_id: anime.mal_id,
+                        // };
+
+                        const token = localStorage.getItem("token");
+                        const config = {
+                          headers: {
+                            Authorization: `Bearer ${token}`,
+                          },
+                        };
+                        try {
+                          const response = await axios.put(
+                            "http://localhost:5000/users/favorites",
+                            userFavorite,
+                            config
+                          );
+                          console.log(response);
+                        } catch (error) {
+                          console.log(error);
+                        }
+                        // await axios.delete(
+                        //   "http://localhost:5000/users/removeFavorites",
+                        //   deleteFavorite,
+                        //   config
+                        // );
                       }}
                     />
                   </div>

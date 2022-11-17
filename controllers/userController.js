@@ -36,16 +36,56 @@ const clear = async (req, res) => {
   }
 };
 
-const addFavorite = async (req, res) => {
+const setFavorite = async (req, res) => {
+  console.log("Hello");
+  const { username, anime_id } = req.body;
   try {
-    console.log({
+    const response = await userFavorite.create({
       username,
-      email,
       anime_id,
     });
-    await userFavorite.create({
+
+    res.status(200).json({ userFavorite });
+    console.log(response);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+const listFavorite = async (req, res) => {
+  const { username } = req.body;
+
+  try {
+    await userFavorite.find({
       username,
-      email,
+    });
+
+    res.status(200).json({ userFavorite });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+const updateFavorite = async (req, res) => {
+  const { username, anime_id } = req.body;
+
+  try {
+    await userFavorite.findByIdAndUpdate({
+      username,
+      anime_id,
+    });
+
+    res.status(200).json({ userFavorite });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+const deleteFavorite = async (req, res) => {
+  const { username, anime_id } = req.body;
+  try {
+    await userFavorite.delete({
+      username,
       anime_id,
     });
 
@@ -59,5 +99,8 @@ module.exports = {
   info,
   allUsers,
   clear,
-  addFavorite,
+  setFavorite,
+  listFavorite,
+  updateFavorite,
+  deleteFavorite,
 };

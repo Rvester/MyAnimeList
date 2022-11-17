@@ -5,7 +5,7 @@ import { AnimeList } from "../components/AnimeList";
 import { AnimeInfo } from "../components/AnimeInfo";
 import { AddToList } from "../components/AddToList";
 import { RemoveFromList } from "../components/RemoveFromList";
-function Home() {
+function Home({ user }) {
   const [search, setSearch] = useState("Dragonball");
   const [animeData, setAnimeData] = useState();
   const [animeInfo, setAnimeInfo] = useState();
@@ -17,7 +17,8 @@ function Home() {
     });
     if (index < 0) {
       const newArray = [...myAnimeList, anime];
-      setMyAnimeList(newArray);
+      //setMyAnimeList(newArray);
+      console.log(newArray);
     }
   };
   const removeFrom = (anime) => {
@@ -67,6 +68,7 @@ function Home() {
               setAnimeInfo={setAnimeInfo}
               animeComponent={AddToList}
               handleList={(anime) => addTo(anime)}
+              user={user}
             />
           </div>
           <h2 className="text-heading">My List</h2>
@@ -76,6 +78,7 @@ function Home() {
               setAnimeInfo={setAnimeInfo}
               animeComponent={RemoveFromList}
               handleList={(anime) => removeFrom(anime)}
+              user={user}
             />
           </div>
         </div>
