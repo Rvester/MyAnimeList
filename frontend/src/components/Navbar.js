@@ -15,12 +15,18 @@ function Navbar({ user, setUser }) {
           </Link>
         </li>
         <li>
-          <Link to="/profile" style={{ textDecoration: "none" }}>
+          <Link
+            to="/profile"
+            className="navBar"
+            style={{ textDecoration: "none" }}
+          >
             Profile
           </Link>
         </li>
         <li onClick={logout}>
-          <Link style={{ textDecoration: "none" }}>Logout</Link>
+          <Link className="navBar" style={{ textDecoration: "none" }}>
+            Logout
+          </Link>
         </li>
       </ul>
     );
@@ -32,13 +38,21 @@ function Navbar({ user, setUser }) {
             <img className="Goku" src="./Goku.png" alt="Luffy Icon" id="icon" />
           </Link>
         </li>
-        <li className="navBar">
-          <Link to="/login" style={{ textDecoration: "none" }}>
+        <li>
+          <Link
+            to="/login"
+            className="navBar"
+            style={{ textDecoration: "none" }}
+          >
             Login
           </Link>
         </li>
-        <li className="navBar">
-          <Link to="/register" style={{ textDecoration: "none" }}>
+        <li>
+          <Link
+            to="/register"
+            className="navBar"
+            style={{ textDecoration: "none" }}
+          >
             Register
           </Link>
         </li>

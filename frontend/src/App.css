@@ -87,7 +87,8 @@
     padding: 30px 10%;
     text-decoration: none;
     list-style: none;
-    
+    color: white;
+
     
 }
 
@@ -98,7 +99,7 @@
 
 .App {
     font-family: 'Oswald', sans-serif;
-
+    
 
 }
 
@@ -106,3 +107,141 @@
    width:100px;
    height:auto; 
 }
+
+.profile{
+    position: relative; 
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+.profile:before{
+    content: "";
+    background-image: url('../public/OnePiece.png');
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.3;
+}
+
+.profile-p{
+    display: block;
+    background: white;
+    font-weight: bold;
+}
+
+.regi-container{
+    
+        position: relative; 
+        height: 100vh;
+        width: 100%;
+    
+       
+}
+    
+    .regi-container:before{
+        display:block;
+        background-position: 50% 0;
+        content: "";
+        background-image: url('../public/Naruto.png');
+        background-size: cover;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        opacity: 0.3;
+        
+    }
+    
+    .regi-content{
+        position: relative;
+        float:left; 
+        display:block;
+        margin:3px 3px 0 0;
+        padding:0;
+        width:13px;
+        height:13px;
+        
+    }
+
+    .login-container{
+    
+        position: relative; 
+        height: 100vh;
+        width: 100%;
+    
+       
+}
+    
+    .login-container:before{
+        display:block;
+        background-position: 50% 0;
+        content: "";
+        background-image: url('../public/chainsaw.png');
+        background-size: cover;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        opacity: 0.3;
+        
+    }
+    
+    .login-content{
+        position: relative;
+        float:left; 
+        display:block;
+        margin:3px 3px 0 0;
+        padding:0;
+        width:13px;
+        height:13px;
+        
+    }
+
+
+    .home-container{
+    
+        position: relative; 
+        height: 100vh;
+        width: 100%;
+    
+       
+}
+    
+    .home-container:before{
+        
+        background-position: 50% 0;
+        content: "";
+        background-image: url('../public/Shonen.png');
+        background-size: cover;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        opacity: 0.3;
+        
+    }
+    
+    .home-content{
+        position: relative;
+       margin:3px 3px 0 0;
+        padding:0;
+       
+        
+    }
+body {
+    padding:0;
+    margin:0
+}
+    
+
+

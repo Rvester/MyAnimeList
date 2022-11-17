@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import { debounce } from "lodash";
+//import SearchBar from "material-ui-search-bar";
 
 import { AnimeList } from "../components/AnimeList";
 import { AnimeInfo } from "../components/AnimeInfo";
@@ -49,10 +50,10 @@ function Home({ user }) {
         },
       };
 
-      const response = await axios.get(
-        `http://localhost:5000/users/favorites?username=${username}`,
-        config
-      );
+      // const response = await axios.get(
+      //   `http://localhost:5000/users/favorites?username=${username}`,
+      //   config
+      // );
       //   const resData = await response;
 
       //   // setMyAnimeList(resData);
@@ -96,46 +97,48 @@ function Home({ user }) {
   }, [getData, search]);
 
   return (
-    <>
-      <div className="header">
-        <h1>MAL</h1>
-        <div className="search-box">
-          <input
-            type="search"
-            placeholder="Search your anime"
-            onChange={(e) => setSearch(e.target.value)}
-          />
+    <div className="home-container">
+      <div className="home-content">
+        <div className="header">
+          <h1>MAL</h1>
+          <div className="search-box">
+            <input
+              type="search"
+              placeholder="Your Favorite Anime Here"
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </div>
         </div>
-      </div>
 
-      <div className="container">
-        <div className="animeInfo">
-          {animeInfo && <AnimeInfo animeInfo={animeInfo} />}
-        </div>
-        <div className="anime-row">
-          <h2 className="text-heading">Anime</h2>
-          <div className="row">
-            <AnimeList
-              animelist={animeData}
-              setAnimeInfo={setAnimeInfo}
-              animeComponent={AddToList}
-              handleList={(anime) => addTo(anime)}
-              user={user}
-            />
+        <div className="container">
+          <div className="animeInfo">
+            {animeInfo && <AnimeInfo animeInfo={animeInfo} />}
           </div>
-          <h2 className="text-heading">My List</h2>
-          <div className="row">
-            <AnimeList
-              animelist={myAnimeList}
-              setAnimeInfo={setAnimeInfo}
-              animeComponent={RemoveFromList}
-              handleList={(anime) => removeFrom(anime)}
-              user={user}
-            />
+          <div className="anime-row">
+            <h2 className="text-heading">Anime</h2>
+            <div className="row">
+              <AnimeList
+                animelist={animeData}
+                setAnimeInfo={setAnimeInfo}
+                animeComponent={AddToList}
+                handleList={(anime) => addTo(anime)}
+                user={user}
+              />
+            </div>
+            <h2 className="text-heading">My List</h2>
+            <div className="row">
+              <AnimeList
+                animelist={myAnimeList}
+                setAnimeInfo={setAnimeInfo}
+                animeComponent={RemoveFromList}
+                handleList={(anime) => removeFrom(anime)}
+                user={user}
+              />
+            </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
