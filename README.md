@@ -11,7 +11,7 @@ This project was loosely based on MAL (https://myanimelist.net) which is an anim
 - Material UI 
 
 
-## Things to Imrpove on
+## Things to Improve on
 With this being my very first fullstack project this was quite the hurdle, 
 
 - Make the data from the backEnd reach the frontEnd to display on the page
